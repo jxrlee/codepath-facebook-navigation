@@ -9,11 +9,17 @@
 #import "AuthenticationViewController.h"
 
 @interface AuthenticationViewController ()
+
+
 @property (weak, nonatomic) IBOutlet UIView *mainView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIImageView *loginButton;
+
 - (IBAction)onTap:(id)sender;
 - (void)willShowKeyboard:(NSNotification *)notification;
 - (void)willHideKeyboard:(NSNotification *)notification;
-
+- (IBAction)onLoginButton:(id)sender;
+- (BOOL)authenticate:(NSString *)username :(NSString *)password;
 
 @end
 
@@ -45,7 +51,10 @@
 }
 
 - (IBAction)onTap:(id)sender {
+    
+    // dismiss keyboard
     [self.view endEditing:YES];
+
 }
 
 - (void)willShowKeyboard:(NSNotification *)notification {
@@ -62,15 +71,26 @@
     NSNumber *curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey];
     UIViewAnimationCurve animationCurve = curveValue.intValue;
     
-    // Move the view with the same duration and animation curve so that it will match with the keyboard animation
+    // Move the mainView
     [UIView animateWithDuration:animationDuration
                           delay:0.0
                         options:(animationCurve << 16)
                      animations:^{
                          self.mainView.frame = CGRectMake(
-                            0, self.view.frame.size.height - kbSize.height/3 - self.mainView.frame.size.height, self.mainView.frame.size.width, self.mainView.frame.size.height);
+                            0, self.view.frame.size.height - kbSize.height - self.mainView.frame.size.height, self.mainView.frame.size.width, self.mainView.frame.size.height);
                      }
                      completion:nil];
+    
+    // Move signup button
+    [UIView animateWithDuration:animationDuration
+                          delay:0.0
+                        options:(animationCurve << 16)
+                     animations:^{
+                         self.bottomView.frame = CGRectMake(
+                            0, self.view.frame.size.height - kbSize.height - self.bottomView.frame.size.height +60, self.bottomView.frame.size.width, self.bottomView.frame.size.height);
+                     }
+                     completion:nil];
+
 }
 
 - (void)willHideKeyboard:(NSNotification *)notification {
@@ -82,14 +102,45 @@
     NSNumber *curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey];
     UIViewAnimationCurve animationCurve = curveValue.intValue;
     
-    // Move the view with the same duration and animation curve so that it will match with the keyboard animation
+    // Move the mainView
     [UIView animateWithDuration:animationDuration
                           delay:0.0
                         options:(animationCurve << 16)
                      animations:^{
-                         self.mainView.frame = CGRectMake(0, self.view.frame.size.height - self.mainView.frame.size.height, self.mainView.frame.size.width, self.mainView.frame.size.height);
+                         self.mainView.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
                      }
                      completion:nil];
+    
+    // Move signup button
+    [UIView animateWithDuration:animationDuration
+                          delay:0.0
+                        options:(animationCurve << 16)
+                     animations:^{
+                         self.bottomView.frame = CGRectMake(
+                            0, self.view.frame.size.height - self.bottomView.frame.size.height, self.bottomView.frame.size.width, self.bottomView.frame.size.height);
+                     }
+                     completion:nil];
+}
+
+- (IBAction)onLoginButton:(id)sender {
+    
+    // change disabled button to Logging In
+    
+    // start spinner
+    
+    // check username and password
+    
+    
+    
+}
+
+- (BOOL)authenticate:(NSString *)username :(NSString *)password {
+    // username filled AND password is 'password'
+    if (username.length > 0 && [password isEqualToString:@"password"]) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 
