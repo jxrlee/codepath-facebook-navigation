@@ -19,6 +19,10 @@
 		7A841FF41948054F00806884 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A841FDC1948054F00806884 /* UIKit.framework */; };
 		7A841FFC1948054F00806884 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A841FFA1948054F00806884 /* InfoPlist.strings */; };
 		7A841FFE1948054F00806884 /* facebook_navigationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A841FFD1948054F00806884 /* facebook_navigationTests.m */; };
+		7A84200A1948067600806884 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8420081948067600806884 /* AuthenticationViewController.m */; };
+		7A84200B1948067600806884 /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8420091948067600806884 /* AuthenticationViewController.xib */; };
+		7A8420101948087700806884 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A84200E1948087700806884 /* FeedViewController.m */; };
+		7A8420111948087700806884 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A84200F1948087700806884 /* FeedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,12 @@
 		7A841FF91948054F00806884 /* facebook-navigationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "facebook-navigationTests-Info.plist"; sourceTree = "<group>"; };
 		7A841FFB1948054F00806884 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7A841FFD1948054F00806884 /* facebook_navigationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = facebook_navigationTests.m; sourceTree = "<group>"; };
+		7A8420071948067600806884 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		7A8420081948067600806884 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		7A8420091948067600806884 /* AuthenticationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
+		7A84200D1948087700806884 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedViewController.h; path = ../FeedViewController.h; sourceTree = "<group>"; };
+		7A84200E1948087700806884 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedViewController.m; path = ../FeedViewController.m; sourceTree = "<group>"; };
+		7A84200F1948087700806884 /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedViewController.xib; path = ../FeedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,7 @@
 				7A841FE81948054F00806884 /* JLAppDelegate.m */,
 				7A841FEA1948054F00806884 /* Images.xcassets */,
 				7A841FDF1948054F00806884 /* Supporting Files */,
+				7A84200C1948084100806884 /* controllers */,
 			);
 			path = "facebook-navigation";
 			sourceTree = "<group>";
@@ -142,6 +153,19 @@
 				7A841FFA1948054F00806884 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7A84200C1948084100806884 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A84200D1948087700806884 /* FeedViewController.h */,
+				7A84200E1948087700806884 /* FeedViewController.m */,
+				7A84200F1948087700806884 /* FeedViewController.xib */,
+				7A8420071948067600806884 /* AuthenticationViewController.h */,
+				7A8420081948067600806884 /* AuthenticationViewController.m */,
+				7A8420091948067600806884 /* AuthenticationViewController.xib */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A84200B1948067600806884 /* AuthenticationViewController.xib in Resources */,
 				7A841FE31948054F00806884 /* InfoPlist.strings in Resources */,
+				7A8420111948087700806884 /* FeedViewController.xib in Resources */,
 				7A841FEB1948054F00806884 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +267,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A841FE91948054F00806884 /* JLAppDelegate.m in Sources */,
+				7A84200A1948067600806884 /* AuthenticationViewController.m in Sources */,
+				7A8420101948087700806884 /* FeedViewController.m in Sources */,
 				7A841FE51948054F00806884 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
