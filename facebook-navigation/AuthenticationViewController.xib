@@ -9,6 +9,8 @@
                 <outlet property="bottomView" destination="XsL-J6-y32" id="Lq4-sa-Q6A"/>
                 <outlet property="loginButton" destination="2IH-iy-law" id="uwa-av-wqi"/>
                 <outlet property="mainView" destination="KQE-KB-57Y" id="pfm-qT-zLj"/>
+                <outlet property="passwordTextField" destination="dwr-nn-h1z" id="otI-ME-6dR"/>
+                <outlet property="usernameTextField" destination="Txg-ky-ALf" id="IyP-Fy-JAv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,17 +35,23 @@
                             <rect key="frame" x="-14" y="157" width="348" height="44"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email or phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txg-ky-ALf">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email or phone number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Txg-ky-ALf">
                             <rect key="frame" x="29" y="241" width="260" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="authEdit:" destination="-1" eventType="editingChanged" id="gnT-1l-VIt"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dwr-nn-h1z">
                             <rect key="frame" x="30" y="292" width="260" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <connections>
+                                <action selector="authEdit:" destination="-1" eventType="editingChanged" id="dQo-r0-gE2"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp8-c4-k0U">
                             <rect key="frame" x="10" y="340" width="299" height="39"/>

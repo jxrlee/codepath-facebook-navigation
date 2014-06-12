@@ -14,12 +14,17 @@
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIImageView *loginButton;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 - (IBAction)onTap:(id)sender;
 - (void)willShowKeyboard:(NSNotification *)notification;
 - (void)willHideKeyboard:(NSNotification *)notification;
 - (IBAction)onLoginButton:(id)sender;
 - (BOOL)authenticate:(NSString *)username :(NSString *)password;
+- (IBAction)authEdit:(id)sender;
+
+
 
 @end
 
@@ -124,8 +129,6 @@
 
 - (IBAction)onLoginButton:(id)sender {
     
-    // change disabled button to Logging In
-    
     // start spinner
     
     // check username and password
@@ -142,6 +145,23 @@
         return 0;
     }
 }
+
+- (IBAction)authEdit:(id)sender {
+    
+    // check if user and password fields are filled
+    if (self.usernameTextField.text.length > 0 && self.passwordTextField.text.length > 0) {
+        // change to enabled login button
+        UIImage *image = [UIImage imageNamed: @"logging_in_button.png"];
+        [self.loginButton setImage:image];
+    } else {
+        // change to disabled login button
+        UIImage *image = [UIImage imageNamed: @"login_button_disabled.png"];
+        [self.loginButton setImage:image];
+    }
+
+}
+
+
 
 
 
