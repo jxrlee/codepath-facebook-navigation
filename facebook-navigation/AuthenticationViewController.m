@@ -68,7 +68,7 @@
                         options:(animationCurve << 16)
                      animations:^{
                          self.mainView.frame = CGRectMake(
-                            0, self.view.frame.size.height - kbSize.height - self.mainView.frame.size.height, self.mainView.frame.size.width, self.mainView.frame.size.height);
+                            0, self.view.frame.size.height - kbSize.height/3 - self.mainView.frame.size.height, self.mainView.frame.size.width, self.mainView.frame.size.height);
                      }
                      completion:nil];
 }
@@ -87,7 +87,7 @@
                           delay:0.0
                         options:(animationCurve << 16)
                      animations:^{
-                         self.commentImageView.frame = CGRectMake(0, self.view.frame.size.height - self.commentImageView.frame.size.height - self.menuBar.frame.size.height, self.commentImageView.frame.size.width, self.commentImageView.frame.size.height);
+                         self.mainView.frame = CGRectMake(0, self.view.frame.size.height - self.mainView.frame.size.height, self.mainView.frame.size.width, self.mainView.frame.size.height);
                      }
                      completion:nil];
 }
