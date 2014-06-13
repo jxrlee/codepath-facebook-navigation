@@ -15,6 +15,7 @@ codepath-facebook-navigation
 - After tapping log in button, show the loading indicator in the button. After a 2 second delay, check the password.
 	- If the password is 'password', transition to the next screen.
 	- If the password is anything else, display the password error alert.
+
 ######News Feed
 - Immediately after launch, display the loading indicator.
 - After 2 seconds, show the feed, which is a long image in a scrollable view.
