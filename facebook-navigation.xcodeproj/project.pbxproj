@@ -87,6 +87,7 @@
 		7A841FCC1948054F00806884 = {
 			isa = PBXGroup;
 			children = (
+				7A84200C1948084100806884 /* controllers */,
 				7A841FDE1948054F00806884 /* facebook-navigation */,
 				7A841FF71948054F00806884 /* facebook-navigationTests */,
 				7A841FD71948054F00806884 /* Frameworks */,
@@ -121,7 +122,6 @@
 				7A841FE81948054F00806884 /* JLAppDelegate.m */,
 				7A841FEA1948054F00806884 /* Images.xcassets */,
 				7A841FDF1948054F00806884 /* Supporting Files */,
-				7A84200C1948084100806884 /* controllers */,
 			);
 			path = "facebook-navigation";
 			sourceTree = "<group>";
@@ -166,6 +166,7 @@
 				7A8420091948067600806884 /* AuthenticationViewController.xib */,
 			);
 			name = controllers;
+			path = "facebook-navigation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

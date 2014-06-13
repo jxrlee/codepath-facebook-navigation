@@ -7,6 +7,7 @@
 //
 
 #import "AuthenticationViewController.h"
+#import "FeedViewController.h"
 
 @interface AuthenticationViewController ()
 
@@ -44,7 +45,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    // preload news feed view
+    // load news feed
+    FeedViewController *vc = [[FeedViewController alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -202,6 +207,8 @@
 - (void)successfulAuth {
     
     NSLog(@"Successful auth");
+    
+    
     
 }
 
