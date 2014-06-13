@@ -46,9 +46,6 @@
 {
     [super viewDidLoad];
     
-    // preload news feed view
-    // load news feed
-    FeedViewController *vc = [[FeedViewController alloc] init];
     
 }
 
@@ -208,7 +205,10 @@
     
     NSLog(@"Successful auth");
     
-    
+    // load news feed
+    FeedViewController *vc = [[FeedViewController alloc] init];
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:vc animated:YES completion:nil];
     
 }
 
