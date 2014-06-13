@@ -19,7 +19,7 @@
                     <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="tabbar" translatesAutoresizingMaskIntoConstraints="NO" id="ChV-ng-Wy6">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="tabbar_news" translatesAutoresizingMaskIntoConstraints="NO" id="ChV-ng-Wy6">
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </imageView>
@@ -55,6 +55,6 @@
     </objects>
     <resources>
         <image name="status_bar" width="640" height="90"/>
-        <image name="tabbar" width="320" height="44"/>
+        <image name="tabbar_news" width="320" height="44"/>
     </resources>
 </document>

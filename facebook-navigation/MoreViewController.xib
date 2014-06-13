@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="menubar_more" translatesAutoresizingMaskIntoConstraints="NO" id="L8R-U3-b8a">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="tabbar_more" translatesAutoresizingMaskIntoConstraints="NO" id="L8R-U3-b8a">
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </imageView>
@@ -35,6 +35,6 @@
         </view>
     </objects>
     <resources>
-        <image name="menubar_more" width="320" height="44"/>
+        <image name="tabbar_more" width="320" height="44"/>
     </resources>
 </document>

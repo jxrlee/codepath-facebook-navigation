@@ -39,6 +39,7 @@
     [searchButton setImage:searchIcon forState:(UIControlStateNormal)];
     [navigationController addSubview:searchButton];*/
     
+    self.navigationItem.title = @"News Feed";
     [self loadingSpinner];
     [self performSelector:@selector(loadFeed) withObject:nil afterDelay:2];
 
@@ -90,21 +91,10 @@
     
     // load more view
     MoreViewController *vc = [[MoreViewController alloc] init];
-    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-    // load navigation controller
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    
-    UIColor *blue = [UIColor colorWithRed:(58.0/255.0) green:(86.0/255.0) blue:(154.0/255.0) alpha:(1.0)];
-    [[UINavigationBar appearance] setBarTintColor:blue];
-    //navigationController.navigationBar.translucent = NO;
-    navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    vc.title = @"More";
 
-    
-    
-    [self presentViewController:navigationController animated:YES completion:nil];
-    
+    // replace navcontroller's rootview
+    [self.navigationController setViewControllers: [NSArray arrayWithObject: vc]
+                                                        animated: NO];
 }
 
 @end
