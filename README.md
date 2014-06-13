@@ -20,6 +20,9 @@ codepath-facebook-navigation
 - Immediately after launch, display the loading indicator.
 - After 2 seconds, show the feed, which is a long image in a scrollable view.
 
+######More
+- Add a scrollable view of the "More" page. 
+
 #####WIP
  
 

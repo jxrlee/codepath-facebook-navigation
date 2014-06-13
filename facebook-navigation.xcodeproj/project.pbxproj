@@ -23,6 +23,8 @@
 		7A84200B1948067600806884 /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8420091948067600806884 /* AuthenticationViewController.xib */; };
 		7A8420101948087700806884 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A84200E1948087700806884 /* FeedViewController.m */; };
 		7A8420111948087700806884 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A84200F1948087700806884 /* FeedViewController.xib */; };
+		7A842015194B975D00806884 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A842013194B975D00806884 /* MoreViewController.m */; };
+		7A842016194B975D00806884 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A842014194B975D00806884 /* MoreViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		7A84200D1948087700806884 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedViewController.h; path = ../FeedViewController.h; sourceTree = "<group>"; };
 		7A84200E1948087700806884 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedViewController.m; path = ../FeedViewController.m; sourceTree = "<group>"; };
 		7A84200F1948087700806884 /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedViewController.xib; path = ../FeedViewController.xib; sourceTree = "<group>"; };
+		7A842012194B975D00806884 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		7A842013194B975D00806884 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		7A842014194B975D00806884 /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +169,9 @@
 				7A8420071948067600806884 /* AuthenticationViewController.h */,
 				7A8420081948067600806884 /* AuthenticationViewController.m */,
 				7A8420091948067600806884 /* AuthenticationViewController.xib */,
+				7A842012194B975D00806884 /* MoreViewController.h */,
+				7A842013194B975D00806884 /* MoreViewController.m */,
+				7A842014194B975D00806884 /* MoreViewController.xib */,
 			);
 			name = controllers;
 			path = "facebook-navigation";
@@ -245,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A842016194B975D00806884 /* MoreViewController.xib in Resources */,
 				7A84200B1948067600806884 /* AuthenticationViewController.xib in Resources */,
 				7A841FE31948054F00806884 /* InfoPlist.strings in Resources */,
 				7A8420111948087700806884 /* FeedViewController.xib in Resources */,
@@ -271,6 +280,7 @@
 				7A84200A1948067600806884 /* AuthenticationViewController.m in Sources */,
 				7A8420101948087700806884 /* FeedViewController.m in Sources */,
 				7A841FE51948054F00806884 /* main.m in Sources */,
+				7A842015194B975D00806884 /* MoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

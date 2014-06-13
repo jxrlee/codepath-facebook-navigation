@@ -214,7 +214,7 @@
     
     UIColor *blue = [UIColor colorWithRed:(58.0/255.0) green:(86.0/255.0) blue:(154.0/255.0) alpha:(1.0)];
     [[UINavigationBar appearance] setBarTintColor:blue];
-    navigationController.navigationBar.translucent = NO;
+    //navigationController.navigationBar.translucent = NO;
     navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     vc.title = @"News Feed";
     
