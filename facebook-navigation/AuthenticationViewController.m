@@ -205,10 +205,21 @@
     
     NSLog(@"Successful auth");
     
-    // load news feed
+    // load news feed view
     FeedViewController *vc = [[FeedViewController alloc] init];
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:vc animated:YES completion:nil];
+    
+    // load navigation controller
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    UIColor *blue = [UIColor colorWithRed:(58.0/255.0) green:(86.0/255.0) blue:(154.0/255.0) alpha:(1.0)];
+    [[UINavigationBar appearance] setBarTintColor:blue];
+    navigationController.navigationBar.translucent = NO;
+    navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    vc.title = @"News Feed";
+    
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
     
 }
 

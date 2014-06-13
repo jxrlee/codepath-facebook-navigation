@@ -10,6 +10,8 @@
 
 @interface FeedViewController ()
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+
 @end
 
 @implementation FeedViewController
@@ -26,13 +28,47 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [self loadingSpinner];
+    [self performSelector:@selector(loadFeed) withObject:nil afterDelay:2];
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadingSpinner {
+    
+    [self.loadingIndicator startAnimating];
+    
+}
+
+- (void)loadFeed {
+    
+    [self.loadingIndicator stopAnimating];
+    CGRect feedSize = CGRectMake(0, 44, 320, 416);
+    UIScrollView *newsfeed = [[UIScrollView alloc] initWithFrame:(feedSize)];
+    
+    // create newsfeed image view
+    UIImageView *newsfeedImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"feed.png"]];
+    
+    // change width of frame
+    CGRect frame = newsfeedImage.frame;
+    frame.size.width = 320;
+    newsfeedImage.frame = frame;
+    
+    // aspect fit image
+    newsfeedImage.contentMode = UIViewContentModeScaleAspectFit;
+    //newsfeedImage.contentMode = UIViewContentModeTop;
+    
+    // add subviews
+    [newsfeed addSubview:newsfeedImage];
+    [self.view addSubview:newsfeed];
+    
+    newsfeed.contentSize = newsfeedImage.frame.size;
 }
 
 @end
