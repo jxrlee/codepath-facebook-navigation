@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthenticationViewController">
             <connections>
+                <outlet property="activityIndicator" destination="KXo-Xw-8UD" id="asg-ds-3EH"/>
                 <outlet property="bottomView" destination="XsL-J6-y32" id="Lq4-sa-Q6A"/>
                 <outlet property="loginButton" destination="2IH-iy-law" id="uwa-av-wqi"/>
                 <outlet property="mainView" destination="KQE-KB-57Y" id="pfm-qT-zLj"/>
@@ -40,18 +41,12 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <action selector="authEdit:" destination="-1" eventType="editingChanged" id="gnT-1l-VIt"/>
-                            </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dwr-nn-h1z">
                             <rect key="frame" x="30" y="292" width="260" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            <connections>
-                                <action selector="authEdit:" destination="-1" eventType="editingChanged" id="dQo-r0-gE2"/>
-                            </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp8-c4-k0U">
                             <rect key="frame" x="10" y="340" width="299" height="39"/>
@@ -63,6 +58,10 @@
                                 <action selector="onLoginButton:" destination="-1" eventType="touchUpInside" id="0nv-1v-8ET"/>
                             </connections>
                         </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="KXo-Xw-8UD">
+                            <rect key="frame" x="280" y="348" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.23137254901960785" green="0.34509803921568627" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                     <gestureRecognizers/>

@@ -16,13 +16,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *loginButton;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (IBAction)onTap:(id)sender;
 - (void)willShowKeyboard:(NSNotification *)notification;
 - (void)willHideKeyboard:(NSNotification *)notification;
 - (IBAction)onLoginButton:(id)sender;
 - (BOOL)authenticate:(NSString *)username :(NSString *)password;
-- (IBAction)authEdit:(id)sender;
 
 
 
@@ -129,36 +129,61 @@
 
 - (IBAction)onLoginButton:(id)sender {
     
-    // start spinner
+    // change buttonState
+    [self startAuth];
+    
     
     // check username and password
+    BOOL authenticated = [self authenticate:self.usernameTextField.text :self.passwordTextField.text];
+    NSLog(@"%d",authenticated);
     
-    
+    //[self performSelector:@selector(authenticate) withObject:nil afterDelay:2];
+    [self performSelector:@selector(stopAuth) withObject:nil afterDelay:2];
     
 }
 
 - (BOOL)authenticate:(NSString *)username :(NSString *)password {
+    
     // username filled AND password is 'password'
     if (username.length > 0 && [password isEqualToString:@"password"]) {
         return 1;
     } else {
         return 0;
     }
+    
 }
 
-- (IBAction)authEdit:(id)sender {
+- (void)startAuth {
     
     // check if user and password fields are filled
     if (self.usernameTextField.text.length > 0 && self.passwordTextField.text.length > 0) {
+        
         // change to enabled login button
         UIImage *image = [UIImage imageNamed: @"logging_in_button.png"];
         [self.loginButton setImage:image];
+        
+        // start spinner
+        [self.activityIndicator startAnimating];
+        
     } else {
+        
         // change to disabled login button
         UIImage *image = [UIImage imageNamed: @"login_button_disabled.png"];
         [self.loginButton setImage:image];
+        
     }
 
+}
+
+- (void)stopAuth {
+    
+    // change to disabled login button
+    UIImage *image = [UIImage imageNamed: @"login_button_disabled.png"];
+    [self.loginButton setImage:image];
+    
+    // stop spinner
+    [self.activityIndicator stopAnimating];
+    
 }
 
 
