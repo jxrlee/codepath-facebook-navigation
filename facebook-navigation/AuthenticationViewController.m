@@ -22,8 +22,6 @@
 - (void)willShowKeyboard:(NSNotification *)notification;
 - (void)willHideKeyboard:(NSNotification *)notification;
 - (IBAction)onLoginButton:(id)sender;
-- (BOOL)authenticate:(NSString *)username :(NSString *)password;
-
 
 
 @end
@@ -132,23 +130,27 @@
     // change buttonState
     [self startAuth];
     
-    
-    // check username and password
-    BOOL authenticated = [self authenticate:self.usernameTextField.text :self.passwordTextField.text];
-    NSLog(@"%d",authenticated);
-    
-    //[self performSelector:@selector(authenticate) withObject:nil afterDelay:2];
+    // perform authentication
+    [self performSelector:@selector(authenticate) withObject:nil afterDelay:2];
     [self performSelector:@selector(stopAuth) withObject:nil afterDelay:2];
     
 }
 
-- (BOOL)authenticate:(NSString *)username :(NSString *)password {
+- (BOOL)authenticate {
+    
+    NSLog(@"Authenticating");
     
     // username filled AND password is 'password'
-    if (username.length > 0 && [password isEqualToString:@"password"]) {
+    if (self.usernameTextField.text.length > 0 && [self.passwordTextField.text isEqualToString:@"password"]) {
+        
+        [self successfulAuth];
         return 1;
+    
     } else {
+        
+        [self showFailedAuthAlert];
         return 0;
+        
     }
     
 }
@@ -187,7 +189,21 @@
 }
 
 
+- (void)showFailedAuthAlert {
+    
+    NSLog(@"Failed auth");
+    
+    // show alert
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Password" message:@"The password you entered is incorrect. Please try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    [alertView show];
+    
+}
 
+- (void)successfulAuth {
+    
+    NSLog(@"Successful auth");
+    
+}
 
 
 @end
