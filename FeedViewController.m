@@ -33,12 +33,13 @@
     [super viewDidLoad];
     
     // add search and message buttons
-    /*UIImage *searchIcon = [UIImage imageNamed:@"search"];
+    UIImage *searchIcon = [UIImage imageNamed:@"search"];
     UIButton *searchButton = [[UIButton alloc] init];
-    searchButton.frame = CGRectMake(10, 10, 22, 22);
+    searchButton.frame = CGRectMake(10, 30, 22, 22);
+    searchButton.adjustsImageWhenHighlighted = NO;
     [searchButton setImage:searchIcon forState:(UIControlStateNormal)];
-    [navigationController addSubview:searchButton];*/
-    
+    [self.navigationController.view addSubview:searchButton];
+
     self.navigationItem.title = @"News Feed";
     [self loadingSpinner];
     [self performSelector:@selector(loadFeed) withObject:nil afterDelay:2];
