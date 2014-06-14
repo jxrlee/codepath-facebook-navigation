@@ -22,6 +22,9 @@ codepath-facebook-navigation
 
 ######More
 - Add a scrollable view of the "More" page. 
+- Add a UIRefreshControl for a pull to refresh.
+- After a pull to refresh, delay for 2 seconds before ending.
+	- Every other time, display an error message.
 
 #####WIP
  

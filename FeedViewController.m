@@ -19,6 +19,10 @@
 
 @implementation FeedViewController
 
+UIRefreshControl *refreshControl;
+BOOL refresh_flag = 1;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -77,11 +81,20 @@
     newsfeedImage.contentMode = UIViewContentModeScaleAspectFit;
     //newsfeedImage.contentMode = UIViewContentModeTop;
     
+    
+    // add refreshcontrol
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(startRefresh) forControlEvents:UIControlEventValueChanged];
+    [newsfeed addSubview:refreshControl];
+    
+    
     // add subviews
     [newsfeed addSubview:newsfeedImage];
     [self.view addSubview:newsfeed];
     
     newsfeed.contentSize = newsfeedImage.frame.size;
+    
+
 }
 
 - (IBAction)onStatusButton:(id)sender {
@@ -96,6 +109,38 @@
     // replace navcontroller's rootview
     [self.navigationController setViewControllers: [NSArray arrayWithObject: vc]
                                                         animated: NO];
+}
+
+- (void)startRefresh {
+    
+    if(!refresh_flag) {
+        NSLog(@"Refresh Fail");
+        // show alert
+        [self performSelector:@selector(refreshAlert) withObject:nil afterDelay:2];
+    } else {
+        NSLog(@"Refresh Success");
+        // stop refreshing
+        [self performSelector:@selector(endRefresh) withObject:nil afterDelay:2];
+    }
+    
+    refresh_flag = !refresh_flag;
+
+}
+
+- (void)refreshAlert {
+    
+    [refreshControl endRefreshing];
+    
+    // show alert
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Please Try Again Later" message:@"An error occurred. Please try again in a few minutes." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    [alertView show];
+    
+}
+
+- (void)endRefresh {
+    
+    [refreshControl endRefreshing];
+    
 }
 
 @end
