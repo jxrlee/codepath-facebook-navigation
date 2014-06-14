@@ -22,6 +22,7 @@ codepath-facebook-navigation
 
 ######More
 - Add a scrollable view of the "More" page. 
+- Upon tapping Log Out, return to the login screen.
 - Add a UIRefreshControl for a pull to refresh.
 - After a pull to refresh, delay for 2 seconds before ending.
 	- Every other time, display an error message.

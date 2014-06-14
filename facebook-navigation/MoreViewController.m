@@ -8,9 +8,13 @@
 
 #import "MoreViewController.h"
 #import "FeedViewController.h"
+#import "AuthenticationViewController.h"
 
-@interface MoreViewController ()
+
+@interface MoreViewController () <UIActionSheetDelegate>
+
 - (IBAction)onNewsfeedButton:(id)sender;
+- (IBAction)onLogoutButton:(id)sender;
 
 @end
 
@@ -46,6 +50,7 @@
     
     // create newsfeed image view
     UIImageView *moreImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"more.png"]];
+    [moreImage setUserInteractionEnabled:YES];
     
     // change width of frame
     CGRect frame = moreImage.frame;
@@ -54,7 +59,11 @@
     
     // aspect fit image
     moreImage.contentMode = UIViewContentModeScaleAspectFit;
-    //newsfeedImage.contentMode = UIViewContentModeTop;
+    
+    // add logout button
+    UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 578, 320, 44)];
+    [logoutButton addTarget:self action:@selector(onLogoutButton:) forControlEvents:UIControlEventTouchUpInside];
+    [moreImage addSubview:logoutButton];
     
     // add subviews
     [moreView addSubview:moreImage];
@@ -76,4 +85,32 @@
                                          animated: NO];
 
 }
+
+- (IBAction)onLogoutButton:(id)sender {
+    
+    NSLog(@"Logout Alert");
+    
+    UIActionSheet *logoutSheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure you want to log out?"
+                                                            delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Log Out"
+                                                    otherButtonTitles:nil];
+    [logoutSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    
+    if  ([buttonTitle isEqualToString:@"Log Out"]) {
+        NSLog(@"Log Out Pressed");
+        
+        AuthenticationViewController *vc = [[AuthenticationViewController alloc] init];
+        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        self.view.window.rootViewController = vc;
+    }
+
+}
+
 @end
