@@ -43,6 +43,14 @@ BOOL refresh_flag = 1;
     searchButton.adjustsImageWhenHighlighted = NO;
     [searchButton setImage:searchIcon forState:(UIControlStateNormal)];
     [self.navigationController.view addSubview:searchButton];
+    
+    UIImage *chatIcon = [UIImage imageNamed:@"message2"];
+    UIButton *chatButton = [[UIButton alloc] init];
+    chatButton.frame = CGRectMake(278, 20, 44, 44);
+    chatButton.adjustsImageWhenHighlighted = NO;
+    [chatButton setImage:chatIcon forState:(UIControlStateNormal)];
+    [self.navigationController.view addSubview:chatButton];
+
 
     self.navigationItem.title = @"News Feed";
     [self loadingSpinner];
