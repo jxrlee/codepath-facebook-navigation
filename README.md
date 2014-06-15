@@ -2,7 +2,7 @@ codepath-facebook-navigation
 ============================
 
 ####How many hours did it take to complete?  
-~ hours  
+~ 10 hours  
 
 
 ####Which required and optional stories have you completed?  
@@ -29,8 +29,6 @@ codepath-facebook-navigation
 - Add a UIRefreshControl for a pull to refresh.
 - After a pull to refresh, delay for 2 seconds before ending.
 	- Every other time, display an error message.
-
-#####WIP
  
 
 ####GIF
