@@ -32,3 +32,4 @@ codepath-facebook-navigation
  
 
 ####GIF
+![alt tag](https://raw.githubusercontent.com/jxrlee/codepath-facebook-navigation/master/facebook.gif)
