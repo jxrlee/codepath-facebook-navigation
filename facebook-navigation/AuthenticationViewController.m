@@ -216,7 +216,7 @@
     [[UINavigationBar appearance] setBarTintColor:blue];
     //navigationController.navigationBar.translucent = NO;
     navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     [self presentViewController:navigationController animated:YES completion:nil];
     

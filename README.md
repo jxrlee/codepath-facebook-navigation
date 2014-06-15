@@ -20,6 +20,8 @@ codepath-facebook-navigation
 - Immediately after launch, display the loading indicator.
 - After 2 seconds, show the feed, which is a long image in a scrollable view.
 - Navigation bar should have the search button and messages button.
+- Tapping a profile picture should push a profile page (optional)
+- 
 
 ######More
 - Add a scrollable view of the "More" page. 

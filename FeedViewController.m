@@ -8,12 +8,15 @@
 
 #import "FeedViewController.h"
 #import "MoreViewController.h"
+#import "ProfileViewController.h"
 
 @interface FeedViewController ()
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 - (IBAction)onStatusButton:(id)sender;
 - (IBAction)onMoreButton:(id)sender;
+- (IBAction)onProfileButton:(id)sender;
+
 
 @end
 
@@ -42,6 +45,7 @@ BOOL refresh_flag = 1;
     searchButton.frame = CGRectMake(10, 30, 22, 22);
     searchButton.adjustsImageWhenHighlighted = NO;
     [searchButton setImage:searchIcon forState:(UIControlStateNormal)];
+    searchButton.tag = 1;
     [self.navigationController.view addSubview:searchButton];
     
     UIImage *chatIcon = [UIImage imageNamed:@"message2"];
@@ -51,12 +55,38 @@ BOOL refresh_flag = 1;
     [chatButton setImage:chatIcon forState:(UIControlStateNormal)];
     [self.navigationController.view addSubview:chatButton];
 
-
+    
     self.navigationItem.title = @"News Feed";
     [self loadingSpinner];
     [self performSelector:@selector(loadFeed) withObject:nil afterDelay:2];
 
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    // add search and message buttons
+    UIImage *searchIcon = [UIImage imageNamed:@"search"];
+    UIButton *searchButton = [[UIButton alloc] init];
+    searchButton.frame = CGRectMake(10, 30, 22, 22);
+    searchButton.adjustsImageWhenHighlighted = NO;
+    [searchButton setImage:searchIcon forState:(UIControlStateNormal)];
+    searchButton.tag = 1;
+    [self.navigationController.view addSubview:searchButton];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    // remove search icon
+    for (UIView *subview in [self.navigationController.view subviews]) {
+        // Only remove the subviews with tag not equal to 1
+        if (subview.tag == 1) {
+            [subview removeFromSuperview];
+        }
+    }
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -79,7 +109,8 @@ BOOL refresh_flag = 1;
     
     // create newsfeed image view
     UIImageView *newsfeedImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"feed.png"]];
-    
+    [newsfeedImage setUserInteractionEnabled:YES];
+
     // change width of frame
     CGRect frame = newsfeedImage.frame;
     frame.size.width = 320;
@@ -88,6 +119,11 @@ BOOL refresh_flag = 1;
     // aspect fit image
     newsfeedImage.contentMode = UIViewContentModeScaleAspectFit;
     //newsfeedImage.contentMode = UIViewContentModeTop;
+    
+    // add profile button
+    UIButton *profileButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 17, 35, 35)];
+    [profileButton addTarget:self action:@selector(onProfileButton:) forControlEvents:UIControlEventTouchUpInside];
+    [newsfeedImage addSubview:profileButton];
     
     
     // add refreshcontrol
@@ -148,6 +184,39 @@ BOOL refresh_flag = 1;
 - (void)endRefresh {
     
     [refreshControl endRefreshing];
+    
+}
+
+- (IBAction)onProfileButton:(id)sender {
+    
+    NSLog(@"Profile Pressed");
+    
+    // load profile view
+    ProfileViewController *vc = [[ProfileViewController alloc] init];
+    CGRect profileSize = CGRectMake(0, 44, 320, 480);
+    UIScrollView *profileView = [[UIScrollView alloc] initWithFrame:(profileSize)];
+    
+    // create newsfeed image view
+    UIImageView *profileImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profile.png"]];
+    
+    // change width of frame
+    CGRect frame = profileImage.frame;
+    frame.size.width = 320;
+    profileImage.frame = frame;
+    
+    // aspect fit image
+    profileImage.contentMode = UIViewContentModeScaleAspectFit;
+    
+    // add subviews
+    [profileView addSubview:profileImage];
+    profileView.contentSize = profileImage.frame.size;
+    [vc.view addSubview:profileView];
+    
+    // remove back button title for profile view
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+
+    
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
