@@ -148,12 +148,16 @@
         [self successfulAuth];
         return 1;
     
-    } else {
+    } else if (self.usernameTextField.text.length > 0 && self.passwordTextField.text.length > 0) {
         
         [self showFailedAuthAlert];
         return 0;
         
+    } else {
+        NSLog(@"Not all fields filled.");
+        return 0;
     }
+        
     
 }
 
